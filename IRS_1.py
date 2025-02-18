@@ -1,4 +1,22 @@
 def calculate_swap_npv(notional, fixed_rate, sofr_rates, discount_factors, spread=0.005):
+    '''
+    Inputs:
+
+notional: The principal amount ($100M).
+fixed_rate: The fixed interest rate (3%).
+sofr_rates: Forward SOFR rates for each year.
+discount_factors: SOFR-based discount factors.
+Computes:
+
+Fixed leg PV by discounting fixed cash flows.
+Floating leg PV by discounting floating cash flows.
+Net Present Value (NPV) of the swap.
+Outputs:
+
+PV of Fixed Leg.
+PV of Floating Leg.
+NPV of the Swap (positive means floating-rate receiver benefits).
+    '''
     years = len(sofr_rates)
     fixed_cash_flows = [notional * fixed_rate for _ in range(years)]
     floating_cash_flows = [notional * (sofr_rates[i] + spread) for i in range(years)]
