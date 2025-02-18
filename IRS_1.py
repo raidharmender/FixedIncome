@@ -4,7 +4,7 @@ def calculate_swap_npv(notional, fixed_rate, sofr_rates, discount_factors, sprea
 
 notional: The principal amount ($100M).
 fixed_rate: The fixed interest rate (3%).
-sofr_rates: Forward SOFR rates for each year.
+sofr_rates: Forward SOFR rates for each year,  derived from the SOFR Overnight Index Swap (OIS) curve using bootstrapping..
 discount_factors: SOFR-based discount factors.
 Computes:
 
